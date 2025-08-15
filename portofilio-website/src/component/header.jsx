@@ -61,7 +61,8 @@ function Header() {
     <nav className="hidden md:flex space-x-4 sm:space-x-5 md:space-x-6 lg:space-x-7 mr-4 sm:mr-6 md:mr-8 lg:mr-10 ">
   {navItems.map((item, index) => {
     return (
-      <button
+      <button key={index}
+      onClick={() => scollToSection(item.href)}
         className="text-gray-300 hover:text-green-400
                    text-sm sm:text-base md:text-base lg:text-lg
                    transition-all duration-300 font-medium relative group"
