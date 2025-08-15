@@ -34,13 +34,11 @@ function Header() {
         { name: "Contact", href: "#contact" },
     ];
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-slate-900">
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-slate-900 ${isScrolled} ? "bg-slate-950
+    backdrop-blur-lg shadow-lg border-b border-slate-800" : "bg-transparent"}`}>
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* Left Side (Desktop Menus) */}
-        <nav className="hidden md:flex space-x-7">
-          {/* Yaha navigation links add karenge */}
-        </nav>
+      
 
         {/* Center Logo */}
         <div className="flex-1 text-left ml-20  text-2xl font-bold">
@@ -48,7 +46,16 @@ function Header() {
           <span className="text-white">Parihar</span>
           <span className="text-green-400">.</span>
         </div>
-
+      {/* Left Side (Desktop Menus) */}
+        <nav className="hidden md:flex space-x-7">
+          {/* Yaha navigation links add karenge */}
+          {navItems.map((item,index) => {
+            return <button className="text-gray-300 hover:text-green-400 transition-all duration-300 
+            font-medium relative-group" style={{animationDelay:`${index * 0.1}s`}}>
+              {item.name}
+            </button>
+          })}
+        </nav>
         {/* Right Side */}
         <div className="flex items-center gap-4">
           {/* Desktop CV Button */}
