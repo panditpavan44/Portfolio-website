@@ -2,6 +2,7 @@ import { ArrowRight, Linkedin, Mail } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { Play } from 'lucide-react'
 import { Github } from 'lucide-react'
+import amit8 from '../assets/amit8.jpeg';
 
 function Hero() {
     const [isVisible,setIsVisible] = useState(false);
@@ -80,12 +81,12 @@ function Hero() {
                     <div className="relative">
                         <div className="w-full max-w-lg mx-auto">
                             <div className="relative-group">
-                                <img src="amit8.jpeg" alt="photo" />
+                                <img src={amit8} alt="photo" className='h-160 w-160 rounded-2xl'/>
 
                             </div>
                         </div>
-                        <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-600 rounded-2xl opacity-20"></div>
-                        <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-500 rounded-full opacity-20"></div>
+                        <div className="absolute -top-8 -right-1 w-20 h-20 bg-green-600 rounded-2xl opacity-20"></div>
+                        <div className="absolute -bottom-4 -left-0 w-16 h-16 bg-blue-500 rounded-full opacity-20"></div>
                     </div>
                 </div>
             </div>
