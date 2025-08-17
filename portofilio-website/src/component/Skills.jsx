@@ -38,7 +38,7 @@ function Skills() {
     {
       title: "Bachelor of Technology in Computer Science",
       institution: "ITM University",
-      year: "2023 F- 2027",
+      year: "2023 - 2027",
       description:
         " Pursuing a degree in Computer Science with a focus on software development and web technologies. This program equips me with the skills to design, develop, and maintain complex software systems.",
     },
@@ -103,7 +103,7 @@ function Skills() {
                     >
                       {edu.year}
                     </div>
-                    <h3 className="text-xl font-black mb-2 group-hover:text-green-400 transition-all duration-300">
+                    <h3 className="text-xl font-black mb-2 text-white group-hover:text-green-400 transition-all duration-300">
                       {edu.title}
                     </h3>
                     <p className="text-gray-400 text-sm leading-relaxed group-hover:text-white transition-all duration-300">
@@ -151,6 +151,7 @@ function Skills() {
                       <div
                         className="bg-gradient-to-r from-green-500 to-green-400 h-3 rounded-full transition-all
                       duration-1500 ease-out relative"
+                        style={{ width: `${animatedSkills[skill.name] || 0}%` }}
                       >
                         <div className="absolute inset-0 bg-white/20"></div>
                       </div>
