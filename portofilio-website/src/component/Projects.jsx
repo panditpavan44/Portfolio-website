@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import amit8 from "../assets/amit8.jpeg";
 import { ExternalLink, Github } from "lucide-react";
 
