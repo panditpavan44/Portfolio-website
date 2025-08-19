@@ -100,25 +100,24 @@ function Experience() {
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="relative">
-            {/* Animate timeline */}
+            {/* Timeline Line */}
             <div
-              className="timeline-line absolute left-8 md:left-1/2 transform md:translate-x-1/2 w-1 h-full bg-slate-700 rounded-full
-                overflow-hidden"
+              className="timeline-line absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full 
+    bg-gradient-to-b from-green-500 via-green-400 to-green-300 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.7)]"
             >
-              <div
-                className={`w-full bg-gradient-to-b  from-green-500 via-green-400 to-green-300 rounded-full
-                    transition-all duration-2000 ease-out`}
-              >
+              <div className="w-full bg-gradient-to-b from-green-500 via-green-400 to-green-300 rounded-full transition-all duration-2000 ease-out">
                 <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-green-300 to-transparent"></div>
               </div>
             </div>
+
+            {/* Timeline Items */}
             {experiences.map((exp, index) => {
               return (
                 <div
                   key={index}
                   className={`experience-item relative flex items-center mb-20 ${
-                    index % 2 === 0 ? "md:flex-row" : "md-flex-row-reverse "
-                  } transition-all duration-1000  ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  } transition-all duration-1000 ${
                     visisbleItems.includes(index)
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
@@ -130,18 +129,19 @@ function Experience() {
                       ? "translateY(0)"
                       : index % 2 === 0
                       ? "translateX(-50px) translateY(20px)"
-                      : "translateX(50px) translateY(20px",
+                      : "translateX(50px) translateY(20px)",
                   }}
                 >
-                  {/* Animated Timeline Dots */}
+                  {/* Animated Timeline Dot */}
                   <div
-                    className={`absolute left-8 md:left-1/2 transform md:translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-slate-900 shadow-lg z-10 ${
+                    className={`absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-slate-900 shadow-lg z-10 ${
                       visisbleItems.includes(index) ? "scale-110" : "scale-0"
                     }`}
                     style={{ transitionDelay: `${index * 300 + 1200}ms` }}
                   >
-                    <div className="abslute inset-0 bg-green-500 rounded-full"></div>
-                    <div className="abslute inset-0 bg-green-400 rounded-full"></div>
+                    {/* Inner glowing layers */}
+                    <div className="absolute inset-0 bg-green-500 rounded-full opacity-80"></div>
+                    <div className="absolute inset-0 bg-green-400 rounded-full animate-ping"></div>
                   </div>
                   {/* content card */}
                   <div
