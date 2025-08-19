@@ -1,9 +1,33 @@
 import { Award, Briefcase, Calendar, MapPin } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Experience() {
   const [visisbleItems, setVisibleItems] = useState([]);
-  const [tomelineVisible, setTimelineVisible] = useState(false);
+  const [timelineVisible, setTimelineVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains("timeline-line")) {
+              setTimelineVisible(true);
+            } else {
+              const index = parseInt(entry.target.dataset.index);
+              setVisibleItems((prev) => [...new Set([...prev, index])]);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+    const timelineElement = document.querySelector(".timeline-item");
+    const experienceItems = document.querySelectorAll(".experience-item");
+    if (timelineElement) observer.observe(timelineElement);
+    experienceItems.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
 
   const experiences = [
     {
@@ -78,7 +102,7 @@ function Experience() {
           <div className="relative">
             {/* Animate timeline */}
             <div
-              className="absolute left-8 md:left-1/2 transform md:translate-x-1/2 w-1 h-full bg-slate-700 rounded-full
+              className="timeline-line absolute left-8 md:left-1/2 transform md:translate-x-1/2 w-1 h-full bg-slate-700 rounded-full
                 overflow-hidden"
             >
               <div
@@ -92,7 +116,7 @@ function Experience() {
               return (
                 <div
                   key={index}
-                  className={`relative flex items-center mb-20 ${
+                  className={`experience-item relative flex items-center mb-20 ${
                     index % 2 === 0 ? "md:flex-row" : "md-flex-row-reverse "
                   } transition-all duration-1000  ${
                     visisbleItems.includes(index)
@@ -122,7 +146,7 @@ function Experience() {
                   {/* content card */}
                   <div
                     className={`ml-20 md:ml-0 md:w-1/2 ${
-                      index % 2 === 0 ? "md-pr-12" : "md-pl-12"
+                      index % 2 === 0 ? "md:pr-12" : "md:pl-12"
                     }`}
                   >
                     <div
@@ -183,18 +207,43 @@ function Experience() {
                           Key Achievements
                         </h5>
                         <ul className="space-y-2">
-                          {exp.achievements.map((achv, index) => {
+                          {exp.achievements.map((achv, achindex) => {
                             return (
                               <li
-                                key={index}
+                                key={achindex}
                                 className={`text-gray-300 text-sm flex items-start gap-3 group-hover:text-white
                             transition-all duration-300`}
+                                style={{
+                                  animationDelay: `${
+                                    index * 300 + achindex * 200 + 1500
+                                  }ms`,
+                                }}
                               >
+                                <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0 animate-pulse"></span>
                                 {achv}
                               </li>
                             );
                           })}
                         </ul>
+                      </div>
+                      {/* Skills */}
+                      <div className="flex flex-wrap gap-3">
+                        {exp.skills.map((skill, skillIndex) => {
+                          return (
+                            <span
+                              key={skillIndex}
+                              className="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full
+                            transition-all duration-300 hover:bg-green-400"
+                              style={{
+                                animationDelay: `${
+                                  index * 300 + skillIndex * 200 + 1800
+                                }ms`,
+                              }}
+                            >
+                              {skill}
+                            </span>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
