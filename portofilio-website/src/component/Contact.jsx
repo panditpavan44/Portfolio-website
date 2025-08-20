@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   MailIcon,
   PhoneCall,
@@ -12,6 +12,20 @@ import {
 } from "lucide-react";
 
 function Contact() {
+  const [isVisible, setIsVisible] = React.useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    const element = document.getElementById("contact");
+    if (element) observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   return (
     <section
       id="contact"
@@ -31,7 +45,11 @@ function Contact() {
       </div>
 
       <div className="conatiner mx-auto px-6 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000`}>
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <p className="text-green-400 font-semibold text-lg mb-4">
             Get In Touch
           </p>
@@ -45,7 +63,13 @@ function Contact() {
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-16">
-          <div className={`space-y-8 transition-all duration-1000`}>
+          <div
+            className={`space-y-8 transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <h3 className="text-2xl font-bold text-white mb-6">
               Contact Information
             </h3>
@@ -77,7 +101,11 @@ function Contact() {
                     key={index}
                     className={`flex items-center gap-4 p-4 bg-slate-900 rounded-lg hover:bg-slate-700
                     transition-all duration-300 border border-slate-700 hover:border-green-500 group cursor-pointter transform
-                    hover:scale-105`}
+                    hover:scale-105 ${
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
                     style={{ animationDelay: `${index * 200 + 300}ms` }}
                   >
                     <div
@@ -96,7 +124,13 @@ function Contact() {
                 );
               })}
             </div>
-            <div className={`pt-8 transition-all duration-1000 delay-900`}>
+            <div
+              className={`pt-8 transition-all duration-1000 delay-900 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <h4 className="text-lg font-semibold text-white mb-4">
                 Follow Me
               </h4>
@@ -117,7 +151,13 @@ function Contact() {
             </div>
           </div>
           {/* Contact Form */}
-          <div className="transition-all duration-1000 delay-300">
+          <div
+            className={`transition-all duration-1000 delay-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <div className="bg-slate-900 rounded-2xl border mb-6 border-slate-700 hover:border-green-500/50 transition-all duration-300 shadow-xl">
               <h3 className="text-2xl font-bold text-white mb-8 pt-8 text-center">
                 Send a Message
