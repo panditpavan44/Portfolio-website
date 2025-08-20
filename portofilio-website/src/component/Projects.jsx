@@ -47,35 +47,35 @@ function Projects() {
       category: "Web Development",
       featured: true,
     },
-    {
-      id: 4,
-      title: "Weather App",
-      description:
-        "A weather application that provides real-time weather updates.",
-      image: `${amit8}`,
-      technologies: ["React", "API Integration", "CSS"],
-      category: "Mobile",
-      featured: true,
-    },
-    {
-      id: 5,
-      title: "Chat Application",
-      description: "A real-time chat application using WebSocket.",
-      image: `${amit8}`,
-      technologies: ["React", "Node.js", "Socket.io"],
-      category: "backened",
-      featured: true,
-    },
-    {
-      id: 6,
-      title: "Task Management App",
-      description:
-        "A task management application to organize tasks and projects.",
-      image: `${amit8}`,
-      technologies: ["React", "Redux", "Firebase"],
-      category: "Full Stack",
-      featured: true,
-    },
+    // {
+    //   id: 4,
+    //   title: "Weather App",
+    //   description:
+    //     "A weather application that provides real-time weather updates.",
+    //   image: `${amit8}`,
+    //   technologies: ["React", "API Integration", "CSS"],
+    //   category: "Mobile",
+    //   featured: true,
+    // },
+    // {
+    //   id: 5,
+    //   title: "Chat Application",
+    //   description: "A real-time chat application using WebSocket.",
+    //   image: `${amit8}`,
+    //   technologies: ["React", "Node.js", "Socket.io"],
+    //   category: "backened",
+    //   featured: true,
+    // },
+    // {
+    //   id: 6,
+    //   title: "Task Management App",
+    //   description:
+    //     "A task management application to organize tasks and projects.",
+    //   image: `${amit8}`,
+    //   technologies: ["React", "Redux", "Firebase"],
+    //   category: "Full Stack",
+    //   featured: true,
+    // },
   ];
   return (
     <section
