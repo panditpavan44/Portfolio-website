@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import amit8 from "../assets/amit8.jpeg";
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
 import { ExternalLink, Github } from "lucide-react";
 
 function Projects() {
@@ -23,7 +26,7 @@ function Projects() {
       title: "Portfolio Website",
       description:
         "A personal portfolio website showcasing my skills and projects.",
-      image: `${amit8}`,
+      image: `${img1}`,
       technologies: ["React", "Tailwind CSS", "JavaScript"],
       category: "Full Stack",
       featured: true,
@@ -32,17 +35,17 @@ function Projects() {
       id: 2,
       title: "E-commerce Platform",
       description: "An e-commerce platform built with React and Node.js.",
-      image: `${amit8}`,
+      image: `${img3}`,
       technologies: ["React", "Node.js", "MongoDB"],
       category: "Web App",
       featured: true,
     },
     {
       id: 3,
-      title: "Blog Application",
+      title: "Employee monitoring System",
       description:
-        "A blog application with user authentication and CRUD operations.",
-      image: `${amit8}`,
+        "A monitoring System with user authentication and CRUD operations.",
+      image: `${img2}`,
       technologies: ["React", "Express", "MongoDB"],
       category: "Web Development",
       featured: true,
